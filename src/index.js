@@ -1,7 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import styles from './style.css';
-// eslint-disable-next-line no-unused-vars
-//import font from '@fortawesome/fontawesome-free/css/all.css';
 
 (function () {
   const CONFIG = {
