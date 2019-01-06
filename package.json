@@ -1,0 +1,55 @@
+{
+  "name": "docsify-plugin-flexible-alerts",
+  "version": "1.0.0",
+  "description": "docsify plugin to convert blockquotes into beautiful and configurable alerts using preconfigured or own styles and alert types.",
+  "keywords": [
+    "docsify",
+    "plugin",
+    "alert",
+    "blockquotes",
+    "quote",
+    "hint",
+    "callout"
+  ],
+  "author": "Fabian Zankl",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/docsify-plugin-flexible-alerts.js",
+  "unpkg": "dist/docsify-plugin-flexible-alerts.min.js",
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rimraf dist/*",
+    "prepare": "npm run clean && npm run build",
+    "start": "npm run build -- -w"
+  },
+  "homepage": "https://github.com/zanfab/docsify-plugin-flexible-alerts#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zanfab/docsify-plugin-flexible-alerts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zanfab/docsify-plugin-flexible-alerts/issues"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.6.3",
+    "@fortawesome/free-regular-svg-icons": "^5.6.3",
+    "autoprefixer": "^8.2.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.19.1",
+    "lodash.merge": "^4.6.1",
+    "rimraf": "^2.6.2",
+    "rollup": "^1.0.2",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-postcss": "^1.5.1",
+    "rollup-plugin-uglify": "^3.0.0",
+    "rollup-plugin-url": "^2.1.0"
+  }
+}
