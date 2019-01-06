@@ -1,0 +1,5 @@
+*
+!book/**
+!index.js
+!package.json
+!LICENSE

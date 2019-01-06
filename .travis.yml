@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+ - "node"
+
+deploy:
+  provider: npm
+  email: "$NPM_MAIL"
+  api_key: "$NPM_TOKEN"
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: master
