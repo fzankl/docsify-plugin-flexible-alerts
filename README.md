@@ -1,5 +1,9 @@
 # docsify plugin: Flexible Alerts
 
+![Build Status](https://api.travis-ci.org/zanfab/docsify-plugin-flexible-alerts.svg)
+[![npm Version](https://img.shields.io/npm/v/docsify-plugin-flexible-alerts/latest.svg)](https://www.npmjs.com/package/docsify-plugin-flexible-alerts)
+[![npm Downloads](https://img.shields.io/npm/dt/docsify-plugin-flexible-alerts.svg)](https://www.npmjs.com/package/docsify-plugin-flexible-alerts)
+
 This docsify plugin converts blockquotes into beautiful alerts. Look and feel can be configured on a global as well as on a alert specific level so output does fit your needs (some examples are shown below). In addition, you can provide own alert types.
 
 ![Sample alerts created with plugin 'flexible-alerts'](https://user-images.githubusercontent.com/44210522/50688702-ea774f00-1026-11e9-9281-ca615cb466f5.jpg)
@@ -166,5 +170,7 @@ In Markdown just use the alert according to the types provided by default.
 If alerts do no look as expected, check if your `index.html` as well as alerts in Markdown are valid according to this documentation.
 
 ## Changelog
+
+01/19/2019 - Fixed issue when using plugin along with themeable plugin.
 
 01/06/2019 - Initial Release
