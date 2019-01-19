@@ -6,8 +6,8 @@
     position: relative;
     word-wrap: break-word;
     word-break: break-word;
-    padding: .75rem 1.25rem;
-    margin-bottom: 1rem;
+    padding: .75rem 1.25rem !important;
+    margin-bottom: 1rem !important;
 }
 
 .alert > * {
@@ -15,7 +15,11 @@
 }
 
 .alert + .alert {
-    margin-top: -.25rem;
+    margin-top: -.25rem !important;
+}
+
+.alert:before {
+    content: unset !important;
 }
 
 .alert p {
