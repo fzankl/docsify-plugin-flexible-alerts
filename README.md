@@ -125,7 +125,7 @@ As you can see in the second snippet, output can be configured on alert level al
 Multiple options can be used for single alerts as shown below:
 
 ```markdown
-> [!TIP|style:flat|label:My own heading|iconVisibility:false]
+> [!TIP|style:flat|label:My own heading|iconVisibility:hidden]
 > An alert of type 'tip' using alert specific style 'flat' which overrides global style 'callout'.
 > In addition, this alert uses an own heading and hides specific icon.
 ```
@@ -171,6 +171,8 @@ If alerts do no look as expected, check if your `index.html` as well as alerts i
 
 ## Changelog
 
+02/26/2019 - Fixed issue concerning content using Chinese as language.
+
 01/19/2019 - Fixed issue when using plugin along with themeable plugin.
 
-01/06/2019 - Initial Release
+01/06/2019 - Initial release.
