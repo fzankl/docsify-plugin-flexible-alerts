@@ -3,15 +3,15 @@ const path = require('path');
 import autoprefixer from 'autoprefixer';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
-import eslint from 'rollup-plugin-eslint';
 import json from 'rollup-plugin-json';
 import merge from 'lodash.merge';
 import pkg from './package.json';
 import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve';
-import uglify from 'rollup-plugin-uglify';
 import url from "rollup-plugin-url";
-import { plugin } from 'postcss';
+
+import { uglify } from 'rollup-plugin-uglify';
+import { eslint } from 'rollup-plugin-eslint';
 
 const entryFile = path.resolve(__dirname, 'src', 'index.js');
 const outputFile = path.resolve(__dirname, 'dist', `${pkg.name}.js`);
@@ -28,22 +28,19 @@ const bannerData = [
 // Plugins
 const pluginSettings = {
     eslint: {
-        exclude: ['node_modules/**', './package.json', '**.css'],
+        exclude: ['node_modules/**', './package.json', '**/*.css'],
         throwOnWarning: false,
         throwOnError: true
     },
     babel: {
         exclude: ['node_modules/**'],
         presets: [
-            ['env', {
+            ['@babel/preset-env', {
                 modules: false,
                 targets: {
                     browsers: ['ie >= 9']
                 }
             }]
-        ],
-        plugins: [
-            'external-helpers'
         ]
     },
     postcss: {
