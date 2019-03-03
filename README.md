@@ -171,7 +171,7 @@ If alerts do no look as expected, check if your `index.html` as well as alerts i
 
 ## Changelog
 
-02/26/2019 - Fixed issue concerning content using Chinese as language.
+02/28/2019 - Fixed issue concerning languages using characters others than [a-z,A-Z,0-9] like Chinese or Russian.
 
 01/19/2019 - Fixed issue when using plugin along with themeable plugin.
 
