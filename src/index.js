@@ -45,7 +45,7 @@ import styles from './style.css';
   }
 
   const install = function (hook, vm) {
-    const options = mergeObjects(CONFIG, vm.config['flexible-alerts']);
+    const options = mergeObjects(CONFIG, vm.config['flexible-alerts'] || vm.config.flexibleAlerts);
 
     const findSetting = function findAlertSetting(input, key, fallback, callback) {
       const match = (input || '').match(new RegExp(`${key}:(([\\s\\w\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF]*))`));
