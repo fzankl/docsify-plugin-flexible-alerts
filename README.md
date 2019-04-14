@@ -165,11 +165,25 @@ In Markdown just use the alert according to the types provided by default.
 
 ![Custom alert type 'comment'](https://user-images.githubusercontent.com/44210522/50722960-6f21a600-10d7-11e9-87e7-d40d87045afe.png)
 
+Instead of configuring this plugin using key `flexible-alerts` you can use camel case notation `flexibleAlerts` as well.
+
+```javascript
+<script>
+  window.$docsify = {
+    'flexibleAlerts': {
+      style: 'flat'
+    }
+  };
+</script>
+```
+
 ## Troubleshooting
 
 If alerts do no look as expected, check if your `index.html` as well as alerts in Markdown are valid according to this documentation.
 
 ## Changelog
+
+04/14/2019 - Added camel case support for plugin configuration key.
 
 03/03/2019 - Fixed issue concerning languages using characters others than [a-z,A-Z,0-9] like Chinese or Russian.
 

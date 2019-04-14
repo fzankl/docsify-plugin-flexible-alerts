@@ -1,6 +1,6 @@
 {
   "name": "docsify-plugin-flexible-alerts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "docsify plugin to convert blockquotes into beautiful and configurable alerts using preconfigured or own styles and alert types.",
   "keywords": [
     "docsify",
