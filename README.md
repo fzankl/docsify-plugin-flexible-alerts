@@ -117,7 +117,7 @@ As you can see in the second snippet, output can be configured on alert level al
 | --------------- | ---- |
 | style | One of follwowing values: callout, flat |
 | label  | Any text |
-| icon  | A valid Font Awesome icon, e.g. 'fa-info-circle' |
+| icon  | A valid Font Awesome icon, e.g. 'fas fa-comment' |
 | className  | A name of a CSS class which specifies the look and feel |
 | labelVisibility | One of follwowing values: visible (default), hidden |
 | iconVisibility  | One of follwowing values: visible (default), hidden |
@@ -148,7 +148,7 @@ As mentioned above you can provide your own alert types. Therefore, you have to 
         },
 
         // Assuming that we use Font Awesome
-        icon: "fa fa-comments",
+        icon: "fas fa-comment",
         className: "info"
       }
     }
@@ -182,6 +182,8 @@ Instead of configuring this plugin using key `flexible-alerts` you can use camel
 If alerts do no look as expected, check if your `index.html` as well as alerts in Markdown are valid according to this documentation.
 
 ## Changelog
+
+09/23/2019 - Fixed issue concerning custom Font Awesome icons when using on alert based level.
 
 04/14/2019 - Added camel case support for plugin configuration key.
 
