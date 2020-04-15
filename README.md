@@ -8,98 +8,141 @@ This docsify plugin converts blockquotes into beautiful alerts. Look and feel ca
 
 ![Sample alerts created with plugin 'flexible-alerts'](https://user-images.githubusercontent.com/44210522/50688702-ea774f00-1026-11e9-9281-ca615cb466f5.jpg)
 
-## Installation
+## Installation and Usage
 
 ### Step #1 - Update `index.html` file
 
 Assuming you have a working [docsify](https://docsify.js.org) app set up, it is easy to use this plugin.
 
 1. Add the following script tag to your `index.html`
-2. In docsify setup configure the plugin so it does fit your needs. A custom setup is not mandatory.
-3. By default style 'callout' and headings 'Note', 'Tip', 'Warning', 'Attention' will be used. You can change it using plugin configuration via `index.html` or for a single alert in your markdown files.
 
-```html
-<!-- Latest -->
-<script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
-```
+    ```html
+    <!-- Latest -->
+    <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+    ```
 
-**Sample `index.html` file using style `flat` instead of `callout`**
+2. In docsify setup configure the plugin so it does fit your needs. A custom setup is not mandatory. By default styles `flat` and `callout` (Default: `callout`) and types `NOTE`, `TIP`, `WARNING` and `DANGER` are supported. Following mappings between type and heading is used:
 
-```javascript
-<script>
-  window.$docsify = {
-    'flexible-alerts': {
-      style: 'flat'
-    }
-  };
-</script>
-```
+    | Type | Heading |
+    |------|---------|
+    | NOTE | Note |
+    | TIP | Note |
+    | WARNING | Warning |
+    | DANGER | Attention |
 
-**Sample `index.html` using custom headings**
+    **Be aware of different meaning between alert type and heading used for a specific type.**
 
-```javascript
-<script>
-  window.$docsify = {
-    'flexible-alerts': {
-      note: {
-        label: "Hinweis"
-      },
-      tip: {
-        label: "Tipp"
-      },
-      warning: {
-        label: "Warnung"
-      },
-      danger: {
-        label: "Achtung"
-      }
-    }
-  };
-</script>
-```
+    You can change it using plugin configuration via `index.html` or for a single alert in your markdown files. (please see section `Customizations` for further details)
 
-**Sample `index.html` using multilingual headings**
+    **Sample `index.html` file using style `flat` instead of `callout`**
 
-```javascript
-<script>
-  window.$docsify = {
-    'flexible-alerts': {
-      note: {
-        label: {
-          '/de-DE/': 'Hinweis',
-          '/': 'Note'
+    ```javascript
+    <script>
+      window.$docsify = {
+        'flexible-alerts': {
+          style: 'flat'
         }
-      },
-      tip: {
-        label: {
-          '/de-DE/': 'Tipp',
-          '/': 'Tip'
-        }
-      },
-      warning: {
-        label: {
-          '/de-DE/': 'Warnung',
-          '/': 'Warning'
-        }
-      },
-      danger: {
-        label: {
-          '/de-DE/': 'Achtung',
-          '/': 'Attention'
-        }
-      }
-    }
-  };
-</script>
-```
+      };
+    </script>
+    ```
 
-### Step #2 - docsify commands
+    **Sample `index.html` using custom headings**
+
+    ```javascript
+    <script>
+      window.$docsify = {
+        'flexible-alerts': {
+          note: {
+            label: "Hinweis"
+          },
+          tip: {
+            label: "Tipp"
+          },
+          warning: {
+            label: "Warnung"
+          },
+          danger: {
+            label: "Achtung"
+          }
+        }
+      };
+    </script>
+    ```
+
+    **Sample `index.html` using multilingual headings**
+
+    ```javascript
+    <script>
+      window.$docsify = {
+        'flexible-alerts': {
+          note: {
+            label: {
+              '/de-DE/': 'Hinweis',
+              '/': 'Note'
+            }
+          },
+          tip: {
+            label: {
+              '/de-DE/': 'Tipp',
+              '/': 'Tip'
+            }
+          },
+          warning: {
+            label: {
+              '/de-DE/': 'Warnung',
+              '/': 'Warning'
+            }
+          },
+          danger: {
+            label: {
+              '/de-DE/': 'Achtung',
+              '/': 'Attention'
+            }
+          }
+        }
+      };
+    </script>
+    ```
+
+### Step #2 - Prepare documentation
+
+Modify or add a new blockquote so it matches required syntax like shown in following examples:
+
+* Sample alert using type `NOTE`
+
+  ```markdown
+  > [!NOTE]
+  > An alert of type 'note' using global style 'callout'.
+  ```
+
+* Sample alert using type `TIP`
+
+  ```markdown
+  > [!TIP]
+  > An alert of type 'tip' using global style 'callout'.
+  ```
+
+* Sample alert using type `WARNING`
+
+  ```markdown
+  > [!WARNING]
+  > An alert of type 'warning' using global style 'callout'.
+  ```
+
+* Sample alert using type `DANGER`
+
+  ```markdown
+  > [!DANGER]
+  > An alert of type 'danger' using global style 'callout'.
+  ```
+
+### Step #3 - docsify commands
 
 Serve your documentation (`docsify serve`) as usual.
 
-## Usage
+## Customizations
 
-To use the plugin just modify an existing blockquote and prepend a line matching pattern `[!type]`. By default types `NOTE`, `TIP`, `WARNING` and `DANGER` are supported. You can extend the available types by providing a valid configuration (see below for an example). 
+To use the plugin just modify an existing blockquote and prepend a line matching pattern `[!type]`. By default types `NOTE`, `TIP`, `WARNING` and `DANGER` are supported. You can extend the available types by providing a valid configuration (see below for an example).
 
 ```markdown
 > [!NOTE]
