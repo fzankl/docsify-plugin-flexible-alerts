@@ -26,7 +26,7 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
     | Type | Heading |
     |------|---------|
     | NOTE | Note |
-    | TIP | Note |
+    | TIP | Tip |
     | WARNING | Warning |
     | DANGER | Attention |
 
