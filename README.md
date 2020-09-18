@@ -21,16 +21,7 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
     <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
     ```
 
-2. In docsify setup configure the plugin so it does fit your needs. A custom setup is not mandatory. By default styles `flat` and `callout` (Default: `callout`) and types `NOTE`, `TIP`, `WARNING` and `DANGER` are supported. Following mappings between type and heading is used:
-
-    | Type | Heading |
-    |------|---------|
-    | NOTE | Note |
-    | TIP | Tip |
-    | WARNING | Warning |
-    | DANGER | Attention |
-
-    **Be aware of different meaning between alert type and heading used for a specific type.**
+2. In docsify setup configure the plugin so it does fit your needs. A custom setup is not mandatory. By default styles `flat` and `callout` (Default: `callout`) and types `INFO`, `TIP`, `WARNING` and `ATTENTION` are supported.
 
     You can change it using plugin configuration via `index.html` or for a single alert in your markdown files. (please see section `Customizations` for further details)
 
@@ -52,7 +43,7 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
     <script>
       window.$docsify = {
         'flexible-alerts': {
-          note: {
+          info: {
             label: "Hinweis"
           },
           tip: {
@@ -61,7 +52,7 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
           warning: {
             label: "Warnung"
           },
-          danger: {
+          attention: {
             label: "Achtung"
           }
         }
@@ -75,7 +66,7 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
     <script>
       window.$docsify = {
         'flexible-alerts': {
-          note: {
+          info: {
             label: {
               '/de-DE/': 'Hinweis',
               '/': 'Note'
@@ -93,7 +84,7 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
               '/': 'Warning'
             }
           },
-          danger: {
+          attention: {
             label: {
               '/de-DE/': 'Achtung',
               '/': 'Attention'
@@ -108,11 +99,11 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
 
 Modify or add a new blockquote so it matches required syntax like shown in following examples:
 
-* Sample alert using type `NOTE`
+* Sample alert using type `INFO`
 
   ```markdown
-  > [!NOTE]
-  > An alert of type 'note' using global style 'callout'.
+  > [!INFO]
+  > An alert of type 'info' using global style 'callout'.
   ```
 
 * Sample alert using type `TIP`
@@ -129,11 +120,11 @@ Modify or add a new blockquote so it matches required syntax like shown in follo
   > An alert of type 'warning' using global style 'callout'.
   ```
 
-* Sample alert using type `DANGER`
+* Sample alert using type `ATTENTION`
 
   ```markdown
-  > [!DANGER]
-  > An alert of type 'danger' using global style 'callout'.
+  > [!ATTENTION]
+  > An alert of type 'attention' using global style 'callout'.
   ```
 
 ### Step #3 - docsify commands
@@ -145,13 +136,13 @@ Serve your documentation (`docsify serve`) as usual.
 To use the plugin just modify an existing blockquote and prepend a line matching pattern `[!type]`. By default types `NOTE`, `TIP`, `WARNING` and `DANGER` are supported. You can extend the available types by providing a valid configuration (see below for an example).
 
 ```markdown
-> [!NOTE]
-> An alert of type 'note' using global style 'callout'.
+> [!INFO]
+> An alert of type 'info' using global style 'callout'.
 ```
 
 ```markdown
-> [!NOTE|style:flat]
-> An alert of type 'note' using alert specific style 'flat' which overrides global style 'callout'.
+> [!INFO|style:flat]
+> An alert of type 'info' using alert specific style 'flat' which overrides global style 'callout'.
 ```
 
 As you can see in the second snippet, output can be configured on alert level also. Supported options are listed in following table:
@@ -199,6 +190,8 @@ As mentioned above you can provide your own alert types. Therefore, you have to 
 </script>
 ```
 
+Since we are using FontAwesome in previous example we habe to include the library via `index.html`, e.g. using a CDN.
+
 In Markdown just use the alert according to the types provided by default.
 
 ```markdown
@@ -225,6 +218,8 @@ Instead of configuring this plugin using key `flexible-alerts` you can use camel
 If alerts do no look as expected, check if your `index.html` as well as alerts in Markdown are valid according to this documentation.
 
 ## Changelog
+
+09/18/2020 - Removed dependency to FontAwesome and embedded icons as SVG.
 
 09/23/2019 - Fixed issue concerning custom Font Awesome icons when using on alert based level.
 
