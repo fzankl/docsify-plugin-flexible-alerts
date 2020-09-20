@@ -4,10 +4,10 @@ import styles from './style.scss';
 (function () {
   const CONFIG = {
     style: 'callout',
-    info: {
+    note: {
       label: 'Note',
-      icon: 'icon-info',
-      className: 'info'
+      icon: 'icon-note',
+      className: 'note'
     },
     tip: {
       label: 'Tip',
@@ -23,13 +23,12 @@ import styles from './style.scss';
       label: 'Attention',
       icon: 'icon-attention',
       className: 'attention'
+    },
+    // To support further keys in plugin we do an automated mapping between alert types.
+    typeMappings: {
+      info: 'note',
+      danger: 'attention'
     }
-  };
-
-  // To support previous naming in plugin we do an automated mapping from old to new alert types.
-  const legacyNameMapping = {
-    note: 'info',
-    danger: 'attention'
   };
 
   function mergeObjects(obj1, obj2, level = 0) {
@@ -66,8 +65,8 @@ import styles from './style.scss';
     hook.afterEach(function (html, next) {
       const modifiedHtml = html.replace(/<\s*blockquote[^>]*>(?:<p>|[\S\n]*)?\[!(\w*)((?:\|[\w*:[\s\w\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF-]*)*?)\]([\s\S]*?)(?:<\/p>)?<\s*\/\s*blockquote>/g, function (match, key, settings, value) {
 
-        if (legacyNameMapping[key.toLowerCase()]) {
-          key = legacyNameMapping[key.toLowerCase()];
+        if (!options[key.toLowerCase()] && options.typeMappings[key.toLowerCase()]) {
+          key = options.typeMappings[key.toLowerCase()];
         }
 
         const config = options[key.toLowerCase()];
