@@ -1,6 +1,6 @@
 {
   "name": "docsify-plugin-flexible-alerts",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "docsify plugin to convert blockquotes into beautiful and configurable alerts using preconfigured or own styles and alert types.",
   "keywords": [
     "docsify",
@@ -24,31 +24,35 @@
     "prepare": "npm run clean && npm run build",
     "start": "npm run build -- -w"
   },
-  "homepage": "https://github.com/zanfab/docsify-plugin-flexible-alerts#readme",
+  "homepage": "https://github.com/fzankl/docsify-plugin-flexible-alerts#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zanfab/docsify-plugin-flexible-alerts.git"
+    "url": "git+https://github.com/fzankl/docsify-plugin-flexible-alerts.git"
   },
   "bugs": {
-    "url": "https://github.com/zanfab/docsify-plugin-flexible-alerts/issues"
+    "url": "https://github.com/fzankl/docsify-plugin-flexible-alerts/issues"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "@fortawesome/fontawesome-free": "^5.11.1",
-    "@fortawesome/free-regular-svg-icons": "^5.11.1",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-url": "^5.0.1",
     "autoprefixer": "^8.2.0",
     "eslint": "^5.16.0",
     "lodash.merge": "^4.6.2",
     "rimraf": "^2.7.1",
-    "rollup": "^1.21.4",
-    "rollup-plugin-babel": "^4.3.3",
+    "rollup": "^1.32.1",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-eslint": "^5.1.0",
     "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "^4.2.4",
-    "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-uglify": "^6.0.3",
-    "rollup-plugin-url": "^2.2.2"
-  }
+    "rollup-plugin-postcss": "^2.9.0",
+    "rollup-plugin-scss": "^2.6.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-url": "^2.2.4"
+  },
+  "dependencies": {}
 }

@@ -1,28 +1,33 @@
 // eslint-disable-next-line no-unused-vars
-import styles from './style.css';
+import styles from './style.scss';
 
 (function () {
   const CONFIG = {
     style: 'callout',
     note: {
       label: 'Note',
-      icon: 'fas fa-info-circle',
-      className: 'info'
+      icon: 'icon-note',
+      className: 'note'
     },
     tip: {
       label: 'Tip',
-      icon: 'fas fa-lightbulb',
+      icon: 'icon-tip',
       className: 'tip'
     },
     warning: {
       label: 'Warning',
-      icon: 'fas fa-exclamation-triangle',
+      icon: 'icon-warning',
       className: 'warning'
     },
-    danger: {
+    attention: {
       label: 'Attention',
-      icon: 'fas fa-ban',
-      className: 'danger'
+      icon: 'icon-attention',
+      className: 'attention'
+    },
+    // To support further keys in plugin we do an automated mapping between alert types.
+    typeMappings: {
+      info: 'note',
+      danger: 'attention'
     }
   };
 
@@ -59,6 +64,11 @@ import styles from './style.css';
 
     hook.afterEach(function (html, next) {
       const modifiedHtml = html.replace(/<\s*blockquote[^>]*>(?:<p>|[\S\n]*)?\[!(\w*)((?:\|[\w*:[\s\w\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF-]*)*?)\]([\s\S]*?)(?:<\/p>)?<\s*\/\s*blockquote>/g, function (match, key, settings, value) {
+
+        if (!options[key.toLowerCase()] && options.typeMappings[key.toLowerCase()]) {
+          key = options.typeMappings[key.toLowerCase()];
+        }
+
         const config = options[key.toLowerCase()];
 
         if (!config) {
@@ -86,14 +96,12 @@ import styles from './style.css';
           }
         }
 
-        const iconTag = `<i class="${icon}"></i>`;
+        const iconTag = `<span class="icon ${icon}"></span>`;
+        const titleTag = `<p class="title">${isIconVisible ? iconTag : ''}${isLabelVisible ? label : ''}</p>`;
 
         return (
           `<div class="alert ${style} ${className}">
-            <p class="title">
-                ${isIconVisible ? iconTag : ''}
-                ${isLabelVisible ? label : ''}
-            </p>
+            ${isIconVisible || isLabelVisible ? titleTag : '' }
             <p>${value}</p>
           </div>`
         );
