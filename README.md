@@ -1,6 +1,6 @@
 # docsify plugin: Flexible Alerts
 
-![Build Status](https://api.travis-ci.org/zanfab/docsify-plugin-flexible-alerts.svg)
+[![Build Status](https://github.com/fzankl/docsify-plugin-flexible-alerts/actions/workflows/main.yml/badge.svg)](https://github.com/fzankl/docsify-plugin-flexible-alerts)
 [![npm Version](https://img.shields.io/npm/v/docsify-plugin-flexible-alerts/latest.svg)](https://www.npmjs.com/package/docsify-plugin-flexible-alerts)
 [![npm Downloads](https://img.shields.io/npm/dt/docsify-plugin-flexible-alerts.svg)](https://www.npmjs.com/package/docsify-plugin-flexible-alerts)
 
@@ -218,6 +218,9 @@ Instead of configuring this plugin using key `flexible-alerts` you can use camel
 If alerts do no look as expected, check if your `index.html` as well as alerts in Markdown are valid according to this documentation.
 
 ## Changelog
+
+08/20/2022
+  * Updated development dependencies and moved to GitHub Actions.
 
 09/20/2020
   * Removed dependency to FontAwesome and embedded icons as SVG directly.

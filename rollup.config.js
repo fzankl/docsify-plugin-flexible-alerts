@@ -2,15 +2,15 @@ const path = require('path');
 
 import autoprefixer from 'autoprefixer';
 import babel from '@rollup/plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import json from 'rollup-plugin-json';
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import merge from 'lodash.merge';
 import pkg from './package.json';
 import postcss from 'rollup-plugin-postcss'
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import url from '@rollup/plugin-url';
 
-import { uglify } from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 import { eslint } from 'rollup-plugin-eslint';
 
 const entryFile = path.resolve(__dirname, 'src', 'index.js');
@@ -55,7 +55,7 @@ const pluginSettings = {
     include: ["**/*.svg"], // defaults to .svg, .png, .jpg and .gif files
     emitFiles: true // defaults to true
   },
-  uglify: {
+  terser: {
     beautify: {
       compress: false,
       mangle: false,
@@ -73,7 +73,6 @@ const pluginSettings = {
     }
   }
 };
-
 
 // Config Base
 const config = {
@@ -103,7 +102,7 @@ const iife = merge({}, config, {
     format: 'iife'
   },
   plugins: [
-    uglify(pluginSettings.uglify.beautify)
+    terser(pluginSettings.terser.beautify)
   ]
 });
 
@@ -114,7 +113,7 @@ const iifeMinified = merge({}, config, {
     format: iife.output.format
   },
   plugins: [
-    uglify(pluginSettings.uglify.minify)
+    terser(pluginSettings.terser.minify)
   ]
 });
 
