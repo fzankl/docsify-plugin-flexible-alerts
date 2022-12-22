@@ -219,7 +219,7 @@ If alerts do no look as expected, check if your `index.html` as well as alerts i
 
 ## Changelog
 
-12/15/2022
+12/22/2022
   * Fixed rendering of alerts when the content does not contain white spaces which can occur with some character encodings.
 
 08/20/2022
