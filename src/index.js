@@ -53,7 +53,7 @@ import styles from './style.scss';
     const options = mergeObjects(CONFIG, vm.config['flexible-alerts'] || vm.config.flexibleAlerts);
 
     const findSetting = function findAlertSetting(input, key, fallback, callback) {
-      const match = (input || '').match(new RegExp(`${key}:(([\\s\\w\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF-]*))`));
+      const match = (input || '').match(new RegExp(`${key}:(([\\u002E\\s\\w\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF-]*))`));
 
       if (!match) {
         return callback ? callback(fallback) : fallback;
@@ -63,7 +63,7 @@ import styles from './style.scss';
     };
 
     hook.afterEach(function (html, next) {
-      const modifiedHtml = html.replace(/<\s*blockquote[^>]*>[\s]+?(?:<p>)?\[!(\w*)((?:\|[\w*:[\s\w\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF-]*)*?)\]([\s\S]*?)(?:<\/p>)?<\s*\/\s*blockquote>/g, function (match, key, settings, value) {
+      const modifiedHtml = html.replace(/<\s*blockquote[^>]*>[\s]+?(?:<p>)?\[!(\w*)((?:\|[\w*:[\u002E\s\w\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF-]*)*?)\]([\s\S]*?)(?:<\/p>)?<\s*\/\s*blockquote>/g, function (match, key, settings, value) {
 
         if (!options[key.toLowerCase()] && options.typeMappings[key.toLowerCase()]) {
           key = options.typeMappings[key.toLowerCase()];
