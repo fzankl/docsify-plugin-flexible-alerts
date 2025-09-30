@@ -213,7 +213,7 @@ Instead of configuring this plugin using key `flexible-alerts` you can use camel
 </script>
 ```
 
-##Samples
+## Samples
 
 The repository contains some [examples](./samples) how the plugin can be used.
 To run the sample checkout the code and execute `npm run serve`.
