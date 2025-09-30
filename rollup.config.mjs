@@ -1,20 +1,15 @@
-const path = require('path');
-
 import autoprefixer from 'autoprefixer';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
-import merge from 'lodash.merge';
-import pkg from './package.json';
-import postcss from 'rollup-plugin-postcss'
+import terser from '@rollup/plugin-terser';
+import eslint from '@rollup/plugin-eslint';
 import resolve from '@rollup/plugin-node-resolve';
 import url from '@rollup/plugin-url';
-
-import { terser } from 'rollup-plugin-terser';
-import { eslint } from 'rollup-plugin-eslint';
-
-const entryFile = path.resolve(__dirname, 'src', 'index.js');
-const outputFile = path.resolve(__dirname, 'dist', `${pkg.name}.js`);
+import postcss from 'rollup-plugin-postcss'
+import serve from 'rollup-plugin-serve'
+import merge from 'lodash.merge';
+import pkg from './package.json' with { type: 'json' };
 
 // Banner
 const bannerData = [
@@ -48,7 +43,13 @@ const pluginSettings = {
     minimize: true,
     plugins: [
       autoprefixer()
-    ]
+    ],
+    use: {
+      sass: {
+        // https://github.com/egoist/rollup-plugin-postcss/issues/463
+        silenceDeprecations: ['legacy-js-api'],
+      }
+    }
   },
   url: {
     limit: 10 * 1024, // inline files < 10k, copy files > 10k
@@ -61,7 +62,7 @@ const pluginSettings = {
       mangle: false,
       output: {
         beautify: true,
-        comments: /(?:^!|@(?:license|preserve))/
+        comments: /^!|@(?:license|preserve)/
       }
     },
     minify: {
@@ -76,9 +77,9 @@ const pluginSettings = {
 
 // Config Base
 const config = {
-  input: entryFile,
+  input: './src/index.js',
   output: {
-    file: outputFile,
+    file: `./dist/${pkg.name}.js`,
     banner: `/*!\n * ${bannerData.join('\n * ')}\n */`,
     sourcemap: true
   },
@@ -89,7 +90,19 @@ const config = {
     commonjs(),
     json(),
     eslint(pluginSettings.eslint),
-    babel(pluginSettings.babel)
+    babel(pluginSettings.babel),
+    ...process.env.BUILD === 'development' ? [serve({
+      open: true,
+      host: 'localhost',
+      port: 35412,
+      contentBase: ['dist', 'samples'],
+      onListening: function (server) {
+        const address = server.address();
+        const host = address.address === '::' ? 'localhost' : address.address;
+        const protocol = this.https ? 'https' : 'https';
+        console.log(`Server listening at ${protocol}://${host}:${address.port}/`);
+        }
+    })] : []
   ],
   watch: {
     clearScreen: false
@@ -116,7 +129,6 @@ const iifeMinified = merge({}, config, {
     terser(pluginSettings.terser.minify)
   ]
 });
-
 
 export default [
   iife,

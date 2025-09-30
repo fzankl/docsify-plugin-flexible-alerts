@@ -4,7 +4,7 @@
 [![npm Version](https://img.shields.io/npm/v/docsify-plugin-flexible-alerts/latest.svg)](https://www.npmjs.com/package/docsify-plugin-flexible-alerts)
 [![npm Downloads](https://img.shields.io/npm/dt/docsify-plugin-flexible-alerts.svg)](https://www.npmjs.com/package/docsify-plugin-flexible-alerts)
 
-This docsify plugin converts blockquotes into beautiful alerts. Look and feel can be configured on a global as well as on a alert specific level so output does fit your needs (some examples are shown below). In addition, you can provide own alert types.
+This docsify plugin converts blockquotes into beautiful alerts. Look and feel can be configured on a global as well as on an alert specific level so output does fit your needs (some examples are shown below). In addition, you can provide own alert types.
 
 ![Sample alerts created with plugin 'flexible-alerts'](https://user-images.githubusercontent.com/44210522/93708131-10fb5780-fb34-11ea-85ae-e18b3e239f83.jpg)
 
@@ -21,7 +21,7 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
     <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
     ```
 
-2. In docsify setup configure the plugin so it does fit your needs. A custom setup is not mandatory. By default styles `flat` and `callout` (Default: `callout`) and types `NOTE`, `TIP`, `WARNING` and `ATTENTION` are supported.
+2. In docsify setup configure the plugin so it does fit your needs. A custom setup is not mandatory. By default, styles `flat` and `callout` (Default: `callout`) and types `NOTE`, `TIP`, `WARNING` and `ATTENTION` are supported.
 
     You can change it using plugin configuration via `index.html` or for a single alert in your markdown files. (please see section `Customizations` for further details)
 
@@ -133,7 +133,7 @@ Serve your documentation (`docsify serve`) as usual.
 
 ## Customizations
 
-To use the plugin just modify an existing blockquote and prepend a line matching pattern `[!type]`. By default types `NOTE`, `TIP`, `WARNING` and `ATTENTION` are supported. You can extend the available types by providing a valid configuration (see below for an example).
+To use the plugin just modify an existing blockquote and prepend a line matching pattern `[!type]`. By default, types `NOTE`, `TIP`, `WARNING` and `ATTENTION` are supported. You can extend the available types by providing a valid configuration (see below for an example).
 
 ```markdown
 > [!NOTE]
@@ -147,14 +147,14 @@ To use the plugin just modify an existing blockquote and prepend a line matching
 
 As you can see in the second snippet, output can be configured on alert level also. Supported options are listed in following table:
 
-| Key            | Allowed value |
-| --------------- | ---- |
-| style | One of follwowing values: callout, flat |
-| label  | Any text |
-| icon  | A valid Font Awesome icon, e.g. 'fas fa-comment' |
-| className  | A name of a CSS class which specifies the look and feel |
-| labelVisibility | One of follwowing values: visible (default), hidden |
-| iconVisibility  | One of follwowing values: visible (default), hidden |
+| Key             | Allowed value                                           |
+|-----------------|---------------------------------------------------------|
+| style           | One of following values: callout, flat                  |
+| label           | Any text                                                |
+| icon            | A valid Font Awesome icon, e.g. 'fas fa-comment'        |
+| className       | A name of a CSS class which specifies the look and feel |
+| labelVisibility | One of following values: visible (default), hidden      |
+| iconVisibility  | One of following values: visible (default), hidden      |
 
 Multiple options can be used for single alerts as shown below:
 
@@ -215,9 +215,14 @@ Instead of configuring this plugin using key `flexible-alerts` you can use camel
 
 ## Troubleshooting
 
-If alerts do no look as expected, check if your `index.html` as well as alerts in Markdown are valid according to this documentation.
+If alerts do not look as expected, check if your `index.html` as well as alerts in Markdown are valid according to this documentation.
 
 ## Changelog
+
+09/30/2025
+  * Added examples to illustrate usage
+  * Updated development dependencies
+  * Fixed issue concerning custom label containing U+2024, ONE DOT LEADER
 
 12/22/2022
   * Fixed rendering of alerts when the content does not contain white spaces which can occur with some character encodings.
