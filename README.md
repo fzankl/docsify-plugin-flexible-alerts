@@ -127,7 +127,7 @@ Modify or add a new blockquote so it matches required syntax like shown in follo
   > An alert of type 'attention' using global style 'callout'.
   ```
 
-### Step #3 - docsify commands
+### Step #3 - Serve documentation
 
 Serve your documentation (`docsify serve`) as usual.
 
@@ -212,6 +212,11 @@ Instead of configuring this plugin using key `flexible-alerts` you can use camel
   };
 </script>
 ```
+
+##Samples
+
+The repository contains some [examples](./samples) how the plugin can be used.
+To run the sample checkout the code and execute `npm run serve`.
 
 ## Troubleshooting
 
