@@ -1,3 +1,6 @@
+@use "sass:meta";
+@use 'sass:color';
+
 .alert {
   display: block;
   position: relative;
@@ -77,7 +80,7 @@
     }
 
     .icon-#{$name} {
-      background-image: url("#{call(get-function(get-#{$name}-icon), $color)}");
+      background-image: url("#{meta.call(meta.get-function(get-#{$name}-icon), $color)}");
     }
   }
 }
@@ -102,24 +105,23 @@
   &.#{$name} {
     color: $text-color;
     background-color: $background-color;
-    border-color: darken($background-color, 5%);
+    border-color: color.scale($background-color, $lightness: -5%);
 
     .title {
       color: $heading-color;
     }
 
     .icon-#{$name} {
-      background-image: url("#{call(get-function(get-#{$name}-icon), $heading-color)}");
+      background-image: url("#{meta.call(meta.get-function(get-#{$name}-icon), $heading-color)}");
     }
   }
 }
 
 .alert.flat {
-  border: 1px solid transparent;
+  border: 1px solid #d6d8db;
   border-radius: 0.125rem;
   color: #383d41;
   background-color: #e2e3e5;
-  border-color: #d6d8db;
 
   @include flat-item('note', #cdeefd, #01354d, #02587f);
   @include flat-item('tip', #dbefdc, #18381a, #285b2a);

@@ -40,6 +40,7 @@ import styles from './style.scss';
         } else {
           obj1[property] = obj2[property];
         }
+      // eslint-disable-next-line no-unused-vars
       } catch(e) {
         // Property in destination object not set; create it and set its value.
         obj1[property] = obj2[property];
