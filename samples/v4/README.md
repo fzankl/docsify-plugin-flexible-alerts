@@ -155,16 +155,8 @@
 
 <!-- -->
 > [!warning]
-> 此处案底将永久保留，永不清除。<br>
-> 如有异议，请联系管理员。
+> 可以显示中文标题。<br>
+> 可以显示中文标题。
 
 <!-- -->
-> [!tip]
-> 此处案底将永久保留，永不清除。<br>
-> 如有异议，请联系管理员。
-
-<!-- -->
-> 我们提倡处罚透明化，服务器及QQ群的所有处罚将会在此公开展示。
-
-<!-- -->
-> Reglular blockquotes can be used further.
+> Regular blockquotes can be used further.
