@@ -150,13 +150,13 @@
 > 可以显示中文标题。
 
 <!-- -->
-> [!TIP|label:внимание|iconVisibility:visible]
-> Это тест для сообщений
-
-<!-- -->
 > [!warning]
 > 可以显示中文标题。<br>
 > 可以显示中文标题。
+
+<!-- -->
+> [!TIP|label:внимание|iconVisibility:visible]
+> Это тест для сообщений
 
 <!-- -->
 > Regular blockquotes can be used further.
