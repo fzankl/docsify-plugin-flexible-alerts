@@ -6,7 +6,7 @@
 
 This docsify plugin converts blockquotes into beautiful alerts. Look and feel can be configured on a global as well as on an alert specific level so output does fit your needs (some examples are shown below). In addition, you can provide own alert types.
 
-![Sample alerts created with plugin 'flexible-alerts'](https://user-images.githubusercontent.com/44210522/93708131-10fb5780-fb34-11ea-85ae-e18b3e239f83.jpg)
+![Sample alerts created with plugin 'flexible-alerts'](./flexible-alerts.png)
 
 ## Installation and Usage
 
@@ -132,7 +132,7 @@ Modify or add a new blockquote so it matches required syntax like shown in follo
 
   ```markdown
   > [!IMPORTANT]
-  > An alert of type 'attention' using global style 'callout'.
+  > An alert of type 'important' using global style 'callout'.
   ```
 
 * Sample alert using type `ATTENTION`
