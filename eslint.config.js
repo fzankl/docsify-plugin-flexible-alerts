@@ -11,7 +11,7 @@ module.exports = defineConfig([{
             ...globals.commonjs,
             ...globals.node,
         },
-        ecmaVersion: 6,
+        ecmaVersion: 2020,
         sourceType: 'module',
         parserOptions: {},
     },

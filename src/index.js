@@ -64,8 +64,8 @@ import styles from './style.scss';
       return callback ? callback(match[1]) : match[1];
     };
 
-    hook.afterEach(function (html, next) {
-      const modifiedHtml = html.replace(/<\s*blockquote[^>]*>\s+?(?:<p>)?\[!(\w*)((?:\|[\w*:[\u002E\s\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF-]*)*?)]([\s\S]*?)(?:<\/p>)?<\s*\/\s*blockquote>/g, function (match, key, settings, value) {
+    hook.afterEach((html) => {
+      return html.replace(/<\s*blockquote[^>]*>\s?(?:<p>)?\[!(\w*)((?:\|[\w*:[\u002E\s\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF-]*)*?)]([\s\S]*?)(?:<\/p>)?<\s*\/\s*blockquote>/g, function (match, key, settings, value) {
 
         if (!options[key.toLowerCase()] && options.typeMappings[key.toLowerCase()]) {
           key = options.typeMappings[key.toLowerCase()];
@@ -110,11 +110,30 @@ import styles from './style.scss';
           </div>`
         );
       });
-
-      next(modifiedHtml);
     });
   };
 
-  window.$docsify = window.$docsify || {};
-  window.$docsify.plugins = [].concat(install, window.$docsify.plugins);
+  const docsify = window.$docsify || {};
+  const docsifyMajorVersion = window.Docsify.version.split('.')[0];
+
+  if (docsifyMajorVersion <= 4) {
+    window.$docsify = {
+      ...docsify,
+      plugins: [].concat(install, docsify.plugins)
+    };
+  } else {
+    // docsify v5 overrides the blockquote renderer to inject its own callout alert style.
+    // To support v5 with this plugin we need to ensure that the blockquote is rendered using the v4 style.
+    window.$docsify = {
+      ...docsify,
+      plugins: [].concat(install, docsify.plugins),
+      markdown: {
+        renderer: {
+          blockquote: function ({tokens}) {
+            return `<blockquote>${this.parser.parse(tokens)}</blockquote>`;
+          }
+        }
+      }
+    };
+  }
 }());
