@@ -25,6 +25,31 @@
 >
 > In addition, title is hidden which is also an alert specific option.
 
+## Info
+
+> [!INFO]
+> An alert of type 'info' using global style 'callout'.
+
+<!-- -->
+> [!INFO|labelVisibility:hidden|iconVisibility:hidden]
+> An alert of type 'info' using global style 'callout'.<br/>
+> In addition, title and icon are hidden which are both alert specific options.
+
+<!-- -->
+> [!INFO|label:Specific heading]
+> An alert of type 'info' using global style 'callout'.<br/>
+> In addition, we use an alert specific title which overrides default ones.
+
+<!-- -->
+> [!INFO|style:flat]
+> An alert of type 'info' using specific style 'flat' and overrides global style 'callout'.
+
+<!-- -->
+> [!INFO|style:flat|labelVisibility:hidden|iconVisibility:hidden]
+> An alert of type 'info' using specific style 'flat' and overrides global style 'callout'.
+>
+> In addition, title is hidden which is also an alert specific option.
+
 ## Tip
 
 > [!TIP]
@@ -72,6 +97,31 @@
 <!-- -->
 > [!WARNING|style:flat|labelVisibility:hidden|iconVisibility:hidden]
 > An alert of type 'warning' using specific style 'flat' and overrides global style 'callout'.
+>
+> In addition, title is hidden which is also an alert specific option.
+
+## Important
+
+> [!IMPORTANT]
+> An alert of type 'important' using global style 'callout'.
+
+<!-- -->
+> [!IMPORTANT|labelVisibility:hidden|iconVisibility:hidden]
+> An alert of type 'important' using global style 'callout'.<br/>
+> In addition, title and icon are hidden which are both alert specific options.
+
+<!-- -->
+> [!IMPORTANT|label:Specific heading]
+> An alert of type 'important' using global style 'callout'.<br/>
+> In addition, we use an alert specific title which overrides default ones.
+
+<!-- -->
+> [!IMPORTANT|style:flat]
+> An alert of type 'important' using specific style 'flat' and overrides global style 'callout'.
+
+<!-- -->
+> [!IMPORTANT|style:flat|labelVisibility:hidden|iconVisibility:hidden]
+> An alert of type 'important' using specific style 'flat' and overrides global style 'callout'.
 >
 > In addition, title is hidden which is also an alert specific option.
 

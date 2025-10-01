@@ -6,7 +6,7 @@
 
 This docsify plugin converts blockquotes into beautiful alerts. Look and feel can be configured on a global as well as on an alert specific level so output does fit your needs (some examples are shown below). In addition, you can provide own alert types.
 
-![Sample alerts created with plugin 'flexible-alerts'](https://user-images.githubusercontent.com/44210522/93708131-10fb5780-fb34-11ea-85ae-e18b3e239f83.jpg)
+![Sample alerts created with plugin 'flexible-alerts'](./flexible-alerts.png)
 
 ## Installation and Usage
 
@@ -21,9 +21,8 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
     <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
     ```
 
-2. In docsify setup configure the plugin so it does fit your needs. A custom setup is not mandatory. By default, styles `flat` and `callout` (Default: `callout`) and types `NOTE`, `TIP`, `WARNING` and `ATTENTION` are supported.
-
-    You can change it using plugin configuration via `index.html` or for a single alert in your markdown files. (please see section `Customizations` for further details)
+2. In docsify setup configure the plugin so it does fit your needs. A custom setup is not mandatory. By default, styles `flat` and `callout` (Default: `callout`) and types `NOTE`, `TIP`, `WARNING`, `IMPORTANT` and `ATTENTION` are supported. For a better compatibility some aliases exists. `INFO`, `DANGER` and `CAUTION` can also be used to define the alerts. 
+   You can change it using plugin configuration via `index.html` or for a single alert in your markdown files. (please see section `Customizations` for further details)
 
     **Sample `index.html` file using style `flat` instead of `callout`**
 
@@ -51,6 +50,9 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
           },
           warning: {
             label: "Warnung"
+          },
+          important: {
+            label: "Wichtig"
           },
           attention: {
             label: "Achtung"
@@ -82,6 +84,12 @@ Assuming you have a working [docsify](https://docsify.js.org) app set up, it is 
             label: {
               '/de-DE/': 'Warnung',
               '/': 'Warning'
+            }
+          },
+          important: {
+            label: {
+              '/de-DE/': 'Wichtig',
+              '/': 'Important'
             }
           },
           attention: {
@@ -120,6 +128,13 @@ Modify or add a new blockquote so it matches required syntax like shown in follo
   > An alert of type 'warning' using global style 'callout'.
   ```
 
+* Sample alert using type `IMPORTANT`
+
+  ```markdown
+  > [!IMPORTANT]
+  > An alert of type 'important' using global style 'callout'.
+  ```
+
 * Sample alert using type `ATTENTION`
 
   ```markdown
@@ -133,7 +148,7 @@ Serve your documentation (`docsify serve`) as usual.
 
 ## Customizations
 
-To use the plugin just modify an existing blockquote and prepend a line matching pattern `[!type]`. By default, types `NOTE`, `TIP`, `WARNING` and `ATTENTION` are supported. You can extend the available types by providing a valid configuration (see below for an example).
+To use the plugin just modify an existing blockquote and prepend a line matching pattern `[!type]`. By default, types `NOTE`, `TIP`, `WARNING`, `IMPORTANT` and `ATTENTION` along with some aliases are supported. You can extend the available types by providing a valid configuration (see below for an example).
 
 ```markdown
 > [!NOTE]
@@ -225,6 +240,7 @@ If alerts do not look as expected, check if your `index.html` as well as alerts 
 ## Changelog
 
 09/30/2025
+  * Added alert type `IMPORTANT` along with some new aliases.
   * Added examples to illustrate usage
   * Updated development dependencies
   * Fixed issue concerning custom label containing U+2024, ONE DOT LEADER

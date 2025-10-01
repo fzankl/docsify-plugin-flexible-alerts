@@ -92,7 +92,7 @@ const config = {
     eslint(pluginSettings.eslint),
     babel(pluginSettings.babel),
     ...process.env.BUILD === 'development' ? [serve({
-      open: true,
+      open: false,
       host: 'localhost',
       port: 35412,
       contentBase: ['dist', 'samples'],
@@ -105,7 +105,8 @@ const config = {
     })] : []
   ],
   watch: {
-    clearScreen: false
+    clearScreen: false,
+    include: ['src/**']
   }
 };
 
