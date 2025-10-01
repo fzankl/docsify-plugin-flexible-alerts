@@ -239,7 +239,8 @@ If alerts do not look as expected, check if your `index.html` as well as alerts 
 
 ## Changelog
 
-09/30/2025
+10/01/2025
+  * Added support for docsify v5.x.
   * Added alert type `IMPORTANT` along with some new aliases.
   * Added examples to illustrate usage
   * Updated development dependencies
