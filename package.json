@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.mjs",
-    "serve": "npm run build -- --environment BUILD:development",
+    "serve": "npm run build -- --environment BUILD:development --watch",
     "clean": "rimraf dist/*",
     "prepare": "npm run clean && npm run build",
     "start": "npm run build -- -w"

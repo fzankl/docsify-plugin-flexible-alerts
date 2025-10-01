@@ -5,29 +5,30 @@ import styles from './style.scss';
   const CONFIG = {
     style: 'callout',
     note: {
-      label: 'Note',
       icon: 'icon-note',
       className: 'note'
     },
     tip: {
-      label: 'Tip',
       icon: 'icon-tip',
       className: 'tip'
     },
     warning: {
-      label: 'Warning',
       icon: 'icon-warning',
       className: 'warning'
     },
+    important: {
+      icon: 'icon-important',
+      className: 'important'
+    },
     attention: {
-      label: 'Attention',
       icon: 'icon-attention',
       className: 'attention'
     },
     // To support further keys in plugin we do an automated mapping between alert types.
     typeMappings: {
       info: 'note',
-      danger: 'attention'
+      danger: 'attention',
+      caution: 'attention'
     }
   };
 
@@ -64,7 +65,7 @@ import styles from './style.scss';
     };
 
     hook.afterEach(function (html, next) {
-      const modifiedHtml = html.replace(/<\s*blockquote[^>]*>[\s]+?(?:<p>)?\[!(\w*)((?:\|[\w*:[\u002E\s\w\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF-]*)*?)\]([\s\S]*?)(?:<\/p>)?<\s*\/\s*blockquote>/g, function (match, key, settings, value) {
+      const modifiedHtml = html.replace(/<\s*blockquote[^>]*>\s+?(?:<p>)?\[!(\w*)((?:\|[\w*:[\u002E\s\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF-]*)*?)]([\s\S]*?)(?:<\/p>)?<\s*\/\s*blockquote>/g, function (match, key, settings, value) {
 
         if (!options[key.toLowerCase()] && options.typeMappings[key.toLowerCase()]) {
           key = options.typeMappings[key.toLowerCase()];
@@ -79,9 +80,11 @@ import styles from './style.scss';
         const style = findSetting(settings, 'style', options.style);
         let isIconVisible = findSetting(settings, 'iconVisibility', 'visible', (value) => value !== 'hidden');
         let isLabelVisible = findSetting(settings, 'labelVisibility', 'visible', (value) => value !== 'hidden');
-        let label = findSetting(settings, 'label', config.label);
         const icon = findSetting(settings, 'icon', config.icon);
         const className = findSetting(settings, 'className', config.className);
+
+        const defaultLabel = key.replace(/(\w)(\w*)/g, (g0,g1, g2) => `${g1.toUpperCase()}${g2.toLowerCase()}`);
+        let label = findSetting(settings, 'label', defaultLabel);
 
         // Label can be language specific and could be specified via user configuration
         if (typeof label === 'object') {

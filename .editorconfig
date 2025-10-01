@@ -6,7 +6,7 @@ charset = utf-8
 indent_style = space
 end_of_line = lf
 
-[*.js]
+[{*.js,*.mjs}]
 insert_final_newline = true
 trim_trailing_whitespace = true
 indent_size = 2
