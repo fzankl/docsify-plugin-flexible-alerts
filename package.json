@@ -27,8 +27,7 @@
     "build": "rollup -c rollup.config.mjs",
     "serve": "npm run build -- --environment BUILD:development --watch",
     "clean": "rimraf dist/*",
-    "prepare": "npm run clean && npm run build",
-    "start": "npm run build -- -w"
+    "prepare": "npm run clean && npm run build"
   },
   "homepage": "https://github.com/fzankl/docsify-plugin-flexible-alerts#readme",
   "repository": {
