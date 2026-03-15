@@ -83,7 +83,7 @@ import styles from './style.scss';
         const icon = findSetting(settings, 'icon', config.icon);
         const className = findSetting(settings, 'className', config.className);
 
-        const defaultLabel = key.replace(/(\w)(\w*)/g, (g0,g1, g2) => `${g1.toUpperCase()}${g2.toLowerCase()}`);
+        const defaultLabel = config.label ?? key.replace(/(\w)(\w*)/g, (g0,g1, g2) => `${g1.toUpperCase()}${g2.toLowerCase()}`);
         let label = findSetting(settings, 'label', defaultLabel);
 
         // Label can be language specific and could be specified via user configuration

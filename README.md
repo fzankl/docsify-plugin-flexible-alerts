@@ -239,6 +239,9 @@ If alerts do not look as expected, check if your `index.html` as well as alerts 
 
 ## Changelog
 
+03/15/2026
+  * Fixed issue concerning custom labels set via global configuration were not working.
+
 10/01/2025
   * Added support for docsify v5.x.
   * Added alert type `IMPORTANT` along with some new aliases.

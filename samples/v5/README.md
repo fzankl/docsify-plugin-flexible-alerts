@@ -175,6 +175,11 @@
 >
 > In addition, title is hidden which is also an alert specific option.
 
+## User-defined alerts
+
+> [!COMMENT]
+> An custom alert of type 'comment' set via global configuration.
+
 ## Examples concerning various issues
 
 > [!TIP]
